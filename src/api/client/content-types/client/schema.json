@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clients",
+  "info": {
+    "singularName": "client",
+    "pluralName": "clients",
+    "displayName": "Client",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "client_id"
+    },
+    "stripe_customer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::stripe-customer.stripe-customer"
+    },
+    "client_upload_bucket": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::client-upload-bucket.client-upload-bucket",
+      "mappedBy": "client"
+    },
+    "appointments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::appointment.appointment",
+      "mappedBy": "client"
+    }
+  }
+}

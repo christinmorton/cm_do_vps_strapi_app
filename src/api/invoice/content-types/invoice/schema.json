@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invoices",
+  "info": {
+    "singularName": "invoice",
+    "pluralName": "invoices",
+    "displayName": "Invoice",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "stripe_customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::stripe-customer.stripe-customer",
+      "inversedBy": "invoices"
+    },
+    "invoice_number": {
+      "type": "uid",
+      "required": true
+    },
+    "amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "unpaid",
+        "partial-payment",
+        "paid-deposit",
+        "paid",
+        "recurring"
+      ],
+      "default": "unpaid",
+      "required": true
+    },
+    "request_proposal": {
+      "type": "boolean"
+    }
+  }
+}

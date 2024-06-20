@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stripe_customers",
+  "info": {
+    "singularName": "stripe-customer",
+    "pluralName": "stripe-customers",
+    "displayName": "Stripe Customer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "total_uploads": {
+      "type": "integer"
+    },
+    "stripe_customer_id": {
+      "type": "string",
+      "required": true
+    },
+    "plan_expires": {
+      "type": "datetime"
+    },
+    "plan_active": {
+      "type": "boolean",
+      "default": false
+    },
+    "subscription_id": {
+      "type": "string"
+    },
+    "invoices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::invoice.invoice",
+      "mappedBy": "stripe_customer"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_products",
+  "info": {
+    "singularName": "service-product",
+    "pluralName": "service-products",
+    "displayName": "Service Product"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service"
+    },
+    "Price": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}

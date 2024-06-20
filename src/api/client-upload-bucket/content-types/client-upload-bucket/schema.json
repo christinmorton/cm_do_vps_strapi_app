@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "client_upload_buckets",
+  "info": {
+    "singularName": "client-upload-bucket",
+    "pluralName": "client-upload-buckets",
+    "displayName": "Client Upload Bucket"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "client": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::client.client",
+      "inversedBy": "client_upload_bucket"
+    },
+    "file_name": {
+      "type": "string"
+    },
+    "file_path": {
+      "type": "text"
+    }
+  }
+}
