@@ -1,4 +1,5 @@
 module.exports = [
+  'global::timerHeader',
   'strapi::logger',
   'strapi::errors',
   'strapi::security',
