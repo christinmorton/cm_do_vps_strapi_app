@@ -1,0 +1,8 @@
+module.exports = ({ env }) => ({
+    proxy: true,
+    url: process.env.APP_URL,
+    app: {
+        keys: env.array('APP_KEYS')
+    }
+  });
+  
